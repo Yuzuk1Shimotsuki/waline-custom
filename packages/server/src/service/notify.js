@@ -279,18 +279,20 @@ module.exports = class extends think.Service {
 
     const contentTG =
       think.config('TGTemplate') ||
-      `💬 *[{{site.name}}]({{site.url}}) 有新评论啦*
+      `💬 *[{{site.name}}]({{site.url}}) 有新評論啦~ *
 
-*{{self.nick}}* 回复说：
+*{{self.nick}}* 回覆 *{{parent.nick}}*：
 
 \`\`\`
 {{self.comment-}}
 \`\`\`
 {{-self.commentLink}}
-*邮箱：*\`{{self.mail}}\`
-*审核：*{{self.status}} 
+*IP 屬地:* {{self.addr}}
+*作業系統:* {{self.browser}} | {{self.os}}
+*電郵：*\`{{self.mail}}\`
+*審核狀態：*{{self.status}} 
 
-仅供评论预览，点击[查看完整內容]({{site.postUrl}})`;
+按此以 [查看完整內容]({{site.postUrl}})`;
 
     const data = {
       self: {
